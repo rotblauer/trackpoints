@@ -1,14 +1,14 @@
 package trackPoint
 
 import (
-	"google.golang.org/appengine"
 	"time"
 )
 
 // Stores a snippet of life, love, and location
 type TrackPoint struct {
 	Name      string             `json:"name"`
-	LatLong   appengine.GeoPoint `json:"latLong"`
+	Lat       float64            `json:"lat"`
+	Lng      float64            `json:"long"`
 	Elevation float64            `json:"elevation"` //in meters
 	Speed     float64            `json:"speed"`//in kilometers per hour
 	Tilt      float64            `json:"tilt"` //degrees?
