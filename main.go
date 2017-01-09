@@ -34,13 +34,12 @@ func localAddresses() {
 	}
 }
 func main() {
-
-	localAddresses()
+	
 	var postUrl string = "DF"
 	flag.StringVar(&postUrl, "postUrl", "http://localhost:8080/populate/", "specify where to post")
 
 	flag.Parse()
-	client := geo.NewGoogleGeo("AIzaSyDIx8zEL5Q8uN2r5kahv9VyADy5xygfrIQ")
+	client := geo.NewGoogleGeo(os.Getenv("GAPI"))
 	point, err:= client.Geolocate()
 	if(err!=nil){
 		fmt.Print(err)
