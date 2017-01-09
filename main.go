@@ -34,7 +34,7 @@ func localAddresses() {
 	}
 }
 func main() {
-	
+
 	var postUrl string = "DF"
 	flag.StringVar(&postUrl, "postUrl", "http://localhost:8080/populate/", "specify where to post")
 
