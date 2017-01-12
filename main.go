@@ -16,6 +16,15 @@ import (
 	"net"
 )
 
+
+
+//https://github.com/skycoin/skycoin/blob/master/src/aether/wifi/wifi.go
+
+
+
+
+
+
 func localAddresses() {
 	ifaces, err := net.Interfaces()
 	if err != nil {
@@ -33,6 +42,10 @@ func localAddresses() {
 		}
 	}
 }
+
+
+
+
 func main() {
 
 	var postUrl string = "DF"
@@ -48,7 +61,7 @@ func main() {
 
 	fmt.Printf("posting to   %s\n", postUrl)
 	t := trackPoint.TrackPoint{Lat:point.Lat, Lng:point.Lng,Time:time.Now()}
-
+	fmt.Print(t)
 	b := new(bytes.Buffer)
 	json.NewEncoder(b).Encode(t)
 	result, err := http.Post(postUrl, "application/json; charset=utf-8", b)
