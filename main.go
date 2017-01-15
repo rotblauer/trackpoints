@@ -49,7 +49,7 @@ func localAddresses() {
 func main() {
 
 	var postUrl string = "DF"
-	flag.StringVar(&postUrl, "postUrl", "http://cattrack-155019.appspot.com/populate/", "specify where to post")
+	flag.StringVar(&postUrl, "postUrl", "http://localhost:8080/populate/", "specify where to post")
 
 	flag.Parse()
 	client := geo.NewGoogleGeo(os.Getenv("GAPI"))
@@ -64,6 +64,7 @@ func main() {
 	fmt.Print(t)
 	b := new(bytes.Buffer)
 	json.NewEncoder(b).Encode(t)
+	fmt.Print(b)
 	result, err := http.Post(postUrl, "application/json; charset=utf-8", b)
 	if(err!=nil){
 		fmt.Print(err)
