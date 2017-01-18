@@ -32,7 +32,7 @@ func (slice TrackPoints) Len() int {
 func (slice TrackPoints) Less(i, j int) bool {
 	ii, _ := strconv.Atoi(slice[i].ID) //assusmes ID is unixnano which puts them in chrono order
 	jj, _ := strconv.Atoi(slice[j].ID)
-	return ii < jj
+	return ii > jj
 }
 func (slice TrackPoints) Swap(i, j int) {
 	slice[i], slice[j] = slice[j], slice[i]
