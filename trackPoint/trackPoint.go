@@ -1,13 +1,12 @@
 package trackPoint
 
 import (
-	"strconv"
 	"time"
 )
 
 // TrackPoint Stores a snippet of life, love, and location
 type TrackPoint struct {
-	ID        string    `json:"id"` //either bolt auto id or unixnano
+	ID        int       `json:"id"` //either bolt auto id or unixnano
 	Name      string    `json:"name"`
 	Lat       float64   `json:"lat"`
 	Lng       float64   `json:"long"`
@@ -30,9 +29,7 @@ func (slice TrackPoints) Len() int {
 	return len(slice)
 }
 func (slice TrackPoints) Less(i, j int) bool {
-	ii, _ := strconv.Atoi(slice[i].ID) //assusmes ID is unixnano which puts them in chrono order
-	jj, _ := strconv.Atoi(slice[j].ID)
-	return ii > jj
+	return slice[i].ID > slice[j].ID //ids autoincrement
 }
 func (slice TrackPoints) Swap(i, j int) {
 	slice[i], slice[j] = slice[j], slice[i]
