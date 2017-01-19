@@ -6,7 +6,7 @@ import (
 
 // TrackPoint Stores a snippet of life, love, and location
 type TrackPoint struct {
-	ID        int       `json:"id"` //either bolt auto id or unixnano
+	ID        int64     `json:"id"` //either bolt auto id or unixnano //think nano is better cuz can check for dupery
 	Name      string    `json:"name"`
 	Lat       float64   `json:"lat"`
 	Lng       float64   `json:"long"`
