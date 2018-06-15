@@ -1,29 +1,22 @@
 package main
 
 import (
-	 "github.com/rotblauer/trackpoints/trackPoint"
-	 geo "github.com/rotblauer/google-geolocate"
 	"bytes"
 	"encoding/json"
-	"io"
-	"os"
-	"net/http"
 	"flag"
+	geo "github.com/rotblauer/google-geolocate"
+	"github.com/rotblauer/trackpoints/trackPoint"
+	"io"
 	"log"
+	"net/http"
+	"os"
 
 	"fmt"
-	"time"
 	"net"
+	"time"
 )
 
-
-
 //https://github.com/skycoin/skycoin/blob/master/src/aether/wifi/wifi.go
-
-
-
-
-
 
 func localAddresses() {
 	ifaces, err := net.Interfaces()
@@ -43,9 +36,6 @@ func localAddresses() {
 	}
 }
 
-
-
-
 func main() {
 
 	var postUrl string = "DF"
@@ -53,20 +43,20 @@ func main() {
 
 	flag.Parse()
 	client := geo.NewGoogleGeo(os.Getenv("GAPI"))
-	point, err:= client.Geolocate()
-	if(err!=nil){
+	point, err := client.Geolocate()
+	if err != nil {
 		fmt.Print(err)
 	}
 	fmt.Println(point)
 
 	fmt.Printf("posting to   %s\n", postUrl)
-	t := trackPoint.TrackPoint{Lat:52.472254, Lng:13.398756,Time:time.Now()}
+	t := trackPoint.TrackPoint{Lat: 52.472254, Lng: 13.398756, Time: time.Now()}
 	fmt.Print(t)
 	b := new(bytes.Buffer)
 	json.NewEncoder(b).Encode(t)
 	fmt.Print(b)
 	result, err := http.Post(postUrl, "application/json; charset=utf-8", b)
-	if(err!=nil){
+	if err != nil {
 		fmt.Print(err)
 	}
 	io.Copy(os.Stdout, result.Body)
