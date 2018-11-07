@@ -2,25 +2,24 @@ package trackPoint
 
 import (
 	"github.com/deet/simpleline"
-	"github.com/rotblauer/tileTester2/note"
 	"time"
 )
 
 // TrackPoint Stores a snippet of life, love, and location
 type TrackPoint struct {
-	Uuid      string          `json:"uuid"`
-	ID        int64           `json:"id"` //either bolt auto id or unixnano //think nano is better cuz can check for dupery
-	Name      string          `json:"name"`
-	Lat       float64         `json:"lat"`
-	Lng       float64         `json:"long"`
-	Accuracy  float64         `json:"accuracy"`
-	Elevation float64         `json:"elevation"` //in meters
-	Speed     float64         `json:"speed"`     //in kilometers per hour
-	Tilt      float64         `json:"tilt"`      //degrees?
-	Heading   float64         `json:"heading"`   //in degrees
-	HeartRate float64         `json:"heartrate"` // bpm
-	Time      time.Time       `json:"time"`
-	Notes     note.NotesField `json:"notes"` //special events of the day
+	Uuid      string    `json:"uuid"`
+	ID        int64     `json:"id"` //either bolt auto id or unixnano //think nano is better cuz can check for dupery
+	Name      string    `json:"name"`
+	Lat       float64   `json:"lat"`
+	Lng       float64   `json:"long"`
+	Accuracy  float64   `json:"accuracy"`
+	Elevation float64   `json:"elevation"` //in meters
+	Speed     float64   `json:"speed"`     //in kilometers per hour
+	Tilt      float64   `json:"tilt"`      //degrees?
+	Heading   float64   `json:"heading"`   //in degrees
+	HeartRate float64   `json:"heartrate"` // bpm
+	Time      time.Time `json:"time"`
+	Notes     string    `json:"notes"` //special events of the day
 }
 
 // Vector deepens
