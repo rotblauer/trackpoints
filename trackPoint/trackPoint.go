@@ -1,14 +1,16 @@
 package trackPoint
 
 import (
-	"github.com/deet/simpleline"
 	"time"
+
+	"github.com/deet/simpleline"
 )
 
 // TrackPoint Stores a snippet of life, love, and location
 type TrackPoint struct {
 	Uuid      string    `json:"uuid"`
 	PushToken string    `json:"pushToken"`
+	Version   string    `json:"version"`
 	ID        int64     `json:"id"` //either bolt auto id or unixnano //think nano is better cuz can check for dupery
 	Name      string    `json:"name"`
 	Lat       float64   `json:"lat"`
