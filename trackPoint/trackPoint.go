@@ -15,7 +15,7 @@ type TrackPoint struct {
 	Name      string    `json:"name"`
 	Lat       float64   `json:"lat"`
 	Lng       float64   `json:"long"`
-	Accuracy  float64   `json:"accuracy"`
+	Accuracy  float64   `json:"accuracy"`  // horizontal, in meters
 	Elevation float64   `json:"elevation"` //in meters
 	Speed     float64   `json:"speed"`     //in kilometers per hour
 	Tilt      float64   `json:"tilt"`      //degrees?
