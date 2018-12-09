@@ -1,6 +1,7 @@
 package trackPoint
 
 import (
+	"net/http"
 	"time"
 
 	"github.com/deet/simpleline"
@@ -23,8 +24,8 @@ type TrackPoint struct {
 	HeartRate  float64   `json:"heartrate"` // bpm
 	Time       time.Time `json:"time"`
 	Notes      string    `json:"notes"` //special events of the day
-	COToken    string    `json:"apiCOToken"`
 	COVerified bool      `json:"COVerified"`
+	RemoteAddr string    `json:"remoteaddr"`
 }
 
 // Vector deepens
@@ -55,10 +56,23 @@ func (p *TrackPoint) Zero() simpleline.Point {
 }
 
 //TrackPoints is plural. might implement Len method for Sortabliilty
-type TrackPoints []TrackPoint
+type TrackPoints []*TrackPoint
 
 //TPs has comm
 type TPs []*TrackPoint
+
+func (tps TrackPoints) Verified() {
+	for i, _ := range tps {
+		tps[i].COVerified = true
+	}
+}
+
+func (tps TrackPoints) Unverified(r *http.Request) {
+	for i, _ := range tps {
+		tps[i].COVerified = false
+		tps[i].RemoteAddr = r.RemoteAddr
+	}
+}
 
 // TrackPoints will implement all the methods required to satisfy
 // the sort.Interface interface
