@@ -17,12 +17,14 @@ type TrackPoint struct {
 	Lat        float64   `json:"lat"`
 	Lng        float64   `json:"long"`
 	Accuracy   float64   `json:"accuracy"`  // horizontal, in meters
+	VAccuracy  float64   `json:"vAccuracy"` // vertical, in meteres
 	Elevation  float64   `json:"elevation"` //in meters
 	Speed      float64   `json:"speed"`     //in kilometers per hour
 	Tilt       float64   `json:"tilt"`      //degrees?
 	Heading    float64   `json:"heading"`   //in degrees
 	HeartRate  float64   `json:"heartrate"` // bpm
 	Time       time.Time `json:"time"`
+	Floor      int       `json:"floor"` // building floor if available
 	Notes      string    `json:"notes"` //special events of the day
 	COVerified bool      `json:"COVerified"`
 	RemoteAddr string    `json:"remoteaddr"`
