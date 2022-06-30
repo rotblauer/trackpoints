@@ -7,6 +7,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rotblauer/google-geolocate v0.0.0-20170109034844-ce12f6c55324 h1:w9VJ70LVvbQbfvNZ2nz3Q1myU/Gtss+W2ZuP2MVKI2k=
 github.com/rotblauer/google-geolocate v0.0.0-20170109034844-ce12f6c55324/go.mod h1:N8iQ9odbvM/EUmJeHWBHuVL2xE/91r1F8HNoZqPWA3U=
+github.com/rotblauer/trackpoints/trackPoint v0.0.0-20220630170348-f4cc23102652 h1:rAy7kM9Bmh77yONEDRQ/1Du3tW+Xsv9/tspmK6FutKg=
+github.com/rotblauer/trackpoints/trackPoint v0.0.0-20220630170348-f4cc23102652/go.mod h1:UifoZEsiF26XUDT9MBTy4axnHFa6o8jTB9d3PqCtjas=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
