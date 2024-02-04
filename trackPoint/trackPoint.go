@@ -3,8 +3,6 @@ package trackPoint
 import (
 	"net/http"
 	"time"
-
-	"github.com/deet/simpleline"
 )
 
 // TrackPoint Stores a snippet of life, love, and location
@@ -34,33 +32,6 @@ type TrackPoint struct {
 
 func (p *TrackPoint) String() string {
 	return p.Name + " " + p.Time.Round(time.Second).String()
-}
-
-// Vector deepens
-func (p *TrackPoint) Vector() []float64 {
-	return []float64{p.Lat, p.Lng}
-}
-
-// Scale does deepry
-func (p *TrackPoint) Scale(val float64) simpleline.Point {
-	np := TrackPoint{}
-	np.Lat = p.Lat * val
-	np.Lng = p.Lng * val
-	return &np
-}
-
-// Subtract add depee
-func (p *TrackPoint) Subtract(p2 simpleline.Point) simpleline.Point {
-	p2Cast := p2.(*TrackPoint)
-	np := TrackPoint{}
-	np.Lat = p.Lng - p2Cast.Lat
-	return &np
-}
-
-// Zero is more deep
-func (p *TrackPoint) Zero() simpleline.Point {
-	np := TrackPoint{}
-	return &np
 }
 
 // TrackPoints is plural. might implement Len method for Sortabliilty
